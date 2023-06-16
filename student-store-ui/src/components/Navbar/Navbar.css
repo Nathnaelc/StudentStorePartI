@@ -1,0 +1,48 @@
+.navbar {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    padding: 20px;
+    background-color: #2C4047;
+    height: 75px;
+}
+
+.logo-social-icons {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  margin-left: 20%;
+}
+
+.codepath-logo{
+    width: 70px;
+    margin-right: 60px;
+}
+
+.nav-bar-items {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 15rem;
+}
+
+.social-icons{
+    display: flex;
+    gap: 25px;
+}
+
+.main-options{
+    display: flex;
+    gap: 110px;
+    align-items: center;
+}
+
+.nav-bar-items a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.nav-bar-items .faInstagram, .nav-bar-items .faTwitter, .nav-bar-items .faFacebookSquare {
+    margin-left: 10px;
+}

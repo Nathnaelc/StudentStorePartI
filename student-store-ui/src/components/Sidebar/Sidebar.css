@@ -1,0 +1,113 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background: var(--dark-blue);
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding: 20px;
+    transition: width 0.3s ease;
+    width: 60px;
+    overflow: hidden;
+    z-index: 2000;
+  }
+  
+  .sidebar.open {
+    width: 22.5%;
+    justify-content: flex-start;
+  }
+  
+  .sidebar .menu-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 25px;
+    margin-left: 50%;
+  }
+  
+  .sidebar .menu-item .icon {
+    margin-right: 10px;
+  }
+  
+  .sidebar .menu-item .label {
+    display: none;
+  }
+  
+  .sidebar.open .menu-item .label {
+    display: inline;
+  }
+  
+  .sidebar .checkout-btn {
+    display: none;
+  }
+  
+  .sidebar.open .checkout-btn {
+    display: block;
+  }
+  
+  .sidebar .checkout-btn {
+    padding: 10px;
+    background: white;
+    color: var(--dark-blue);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 80%;
+    margin: auto;
+  }
+
+  .sidebar.open form input[type="text"] {
+    padding: 5px;
+    /* margin: 15px 0px; */
+    border-radius: 4px;
+    border: 1px solid white;
+    color: white;
+    background-color: white;
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #aaa;
+  border-radius: 3px;
+  }
+  
+  .sidebar.open form input[type="checkbox"] {
+    display: inline-block;
+    margin: 10px 5px;
+  }
+
+  .sidebar.open form label[for="agree"] {
+    display: inline-block;
+  }
+
+  .sidebar.open form button[type="submit"] {
+    padding: 15px 10px;
+    border: solid 1px white;
+    background-color: transparent;
+    color: white;
+    border-radius: 0;
+    cursor: pointer;
+    width: 50%;
+
+  }
+
+  :root {
+    --dark-blue: #2c4047;
+  }
+  
+  body{
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .sidebar .cart-info .placeholder {
+    margin-top: 10px;
+    font-style: italic;
+    color: #aaa;
+  }
+
+  
