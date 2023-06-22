@@ -16,7 +16,7 @@ export default function Home({ activeTab, setActiveTab }) {
 
   return (
     // The sidebar is hidden by default, but when the menu-container is clicked, the sidebar is shown
-    <div id="home" className="home">
+    <div className="home">
       <div className="menu">
         <div className="menu-container" onClick={toggleMenu}>
           <FontAwesomeIcon icon={faBars} />

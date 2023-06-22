@@ -8,22 +8,29 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 import {
   faPlusSquare,
   faMinusSquare,
-} from "@fortawesome/free-regular-svg-icons";
+} from "@fortawesome/fontawesome-free-regular";
 
+// Product component to render the products
 export default function Product({
   searchbox,
   setProducts,
   products,
   category,
+  onAddToCart,
+  onRemoveFromCart,
 }) {
+  console.log("products:", products);
+  // This function filters the products based on the searchbox and category
   const filteredProducts = products.filter((product) => {
+    // If the searchbox is empty, all products are shown
     const matchesSearch =
       !searchbox ||
       product.name.toLowerCase().includes(searchbox.toLowerCase());
+    // If the category is "All Categories", all products are shown
     const matchesCategory =
       category?.toLowerCase() === "all categories" ||
       product.category?.toLowerCase() === category?.toLowerCase();
-    return matchesSearch && matchesCategory;
+    return matchesSearch && matchesCategory; // returns the products that match the searchbox and category
   });
 
   return (
@@ -35,10 +42,16 @@ export default function Product({
             <div className="product-info">
               <h2>{product.name}</h2>
               <div className="product-controls">
-                <button id="plus_minus">
+                <button
+                  id="plus"
+                  onClick={() => {
+                    console.log("product id:" + product.id);
+                    onAddToCart(product.id);
+                  }}
+                >
                   <FontAwesomeIcon icon={faMinusSquare} />
                 </button>
-                <button id="plus_minus">
+                <button id="minus" onClick={() => onRemoveFromCart(product.id)}>
                   <FontAwesomeIcon icon={faPlusSquare} />
                 </button>
               </div>

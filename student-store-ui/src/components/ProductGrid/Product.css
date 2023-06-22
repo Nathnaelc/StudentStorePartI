@@ -44,7 +44,7 @@
   align-items: center;
 }
 
-#plus_minus {
+#plus, #minus {
   background-color: transparent;
   color: #00c385;
   padding: 0;

@@ -8,7 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "./Sidebar.css";
 
-export default function Sidebar() {
+export default function Sidebar({ cart, onAddToCart, onRemoveFromCart }) {
   // usestate for sidebar to expand and collapse
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -26,11 +26,20 @@ export default function Sidebar() {
       </div>
       {isExpanded && (
         <div className="cart-info">
-          <span className="placeholder">
-            No items added to cart yet. Start shopping now
-          </span>
+          {cart.length === 0 ? (
+            <span className="placeholder">
+              No items added to cart yet. Start shopping now
+            </span>
+          ) : (
+            <Cart
+              cart={cart}
+              onAddToCart={onAddToCart}
+              onRemoveFromCart={onRemoveFromCart}
+            />
+          )}
         </div>
       )}
+
       <div className="menu-item">
         <FontAwesomeIcon icon={faDollarSign} className="icon" />
         <span className="label">Payment Info</span>

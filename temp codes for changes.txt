@@ -1,0 +1,107 @@
+const onAddToCart = (productId) => {
+    setCart((prevCart) => {
+      const existingItem = prevCart.find((item) => item.id === productId);
+
+      if (existingItem) {
+        // if the product is already in the cart, increment its quantity
+        return prevCart.map((item) =>
+          item.id === productId
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      } else {
+        // if the product is not in the cart, add it with quantity 1
+        const product = products.find((product) => product.id === productId);
+        return [...prevCart, { ...product, quantity: 1 }];
+      }
+    });
+  };
+
+  const onRemoveFromCart = (productId) => {
+    setCart((prevCart) => {
+      const existingItem = prevCart.find((item) => item.id === productId);
+
+      if (existingItem && existingItem.quantity > 1) {
+        // if the product is in the cart and its quantity is greater than 1, decrement its quantity
+        return prevCart.map((item) =>
+          item.id === productId
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
+        );
+      } else {
+        // if the product's quantity is 1, remove it from the cart
+        return prevCart.filter((item) => item.id !== productId);
+      }
+    });
+  };
+
+
+//the Cart.jsx
+import Cartitem from "../CartItem/Cartitem";
+import React from "react";
+
+export default function Cart({ cart, onAddToCart, onRemoveFromCart }) {
+  console.log("Cart cart:", cart);
+  return (
+    <table>
+      <thead>
+        <tr>
+          <th>Shopping Cart</th>
+        </tr>
+      </thead>
+      <tbody>
+        {cart.map((item) => (
+          <Cartitem
+            key={item.id}
+            item={item}
+            addToCart={onAddToCart}
+            removeFromCart={onRemoveFromCart}
+          />
+        ))}
+      </tbody>
+    </table>
+  );
+}
+
+// single cart item
+import React from "react";
+import Cart from "../Cart/Cart";
+
+export default function SingleCartitem({ item }) {
+  console.log("SingleCartItem item:", item);
+
+  return (
+    <tr className="cart-items">
+      <td>{item.name}</td>
+      <td>Quantity: {item.quantity}</td>
+      <td>Unit price: ${item.price}</td>
+      <td>Cost: ${item.price * item.quantity}</td>
+    </tr>
+  );
+}
+
+
+<button
+                  id="plus"
+                  onClick={() => {
+                    console.log("product id:" + product.id);
+                    onAddToCart(product.id);
+                  }}
+                >
+                  <FontAwesomeIcon icon={faMinusSquare} />
+                </button>
+                <button id="minus" onClick={() => onRemoveFromCart(product.id)}>
+
+
+// the part for the cart thing to show up in the side SearchBar
+          {cart.length === 0 ? (
+            <span className="placeholder">
+              No items added to cart yet. Start shopping now
+            </span>
+          ) : (
+            <Cart
+              cart={cart}
+              onAddToCart={onAddToCart}
+              onRemoveFromCart={onRemoveFromCart}
+            />
+          )}
