@@ -68,7 +68,7 @@ export default function App() {
     });
   };
 
-  console.log("cart is: " + cart);
+  // console.log("cart is: " + cart);
   // useEffect hook to fetch the data from the API
   useEffect(() => {
     axios
@@ -81,18 +81,18 @@ export default function App() {
       });
   }, []);
 
-  console.log("products:" + products);
+  // console.log("products:" + products);
 
   return (
     <div className="app">
       <Router>
         <main>
           <Navbar />
-          <Cart
+          {/* <Cart
             cart={cart}
-            addToCart={onAddToCart}
-            removeFromCart={onRemoveFromCart}
-          />
+            onAddToCart={onAddToCart}
+            onRemoveFromCart={onRemoveFromCart}
+          /> */}
           <Sidebar
             cart={cart}
             onAddToCart={onAddToCart}

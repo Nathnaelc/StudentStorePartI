@@ -36,36 +36,37 @@ export default function Product({
   return (
     <div id="products" className="products">
       {filteredProducts.map((product, i) => (
-        <Link to={`/product/${product.id}`}>
-          <div className="product-card" key={product.id}>
+        <div className="product-card" key={product.id}>
+          <Link to={`/product/${product.id}`}>
             <img src={product.image} alt={product.name} />
             <div className="product-info">
               <h2>{product.name}</h2>
-              <div className="product-controls">
-                <button
-                  id="plus"
-                  onClick={() => {
-                    console.log("product id:" + product.id);
-                    onAddToCart(product.id);
-                  }}
-                >
-                  <FontAwesomeIcon icon={faMinusSquare} />
-                </button>
-                <button id="minus" onClick={() => onRemoveFromCart(product.id)}>
-                  <FontAwesomeIcon icon={faPlusSquare} />
-                </button>
-              </div>
             </div>
-            <div className="product-rating">
-              <FontAwesomeIcon icon={faStar} color="gold" />
-              <FontAwesomeIcon icon={faStar} color="gold" />
-              <FontAwesomeIcon icon={faStar} color="gold" />
-              <FontAwesomeIcon icon={faStar} color="gold" />
-              <FontAwesomeIcon icon={faStar} color="gold" />
-            </div>
-            <p>${product.price}</p>
+          </Link>
+
+          <div className="product-controls">
+            <button
+              id="plus"
+              onClick={() => {
+                console.log("product id:" + product.id);
+                onAddToCart(product.id);
+              }}
+            >
+              <FontAwesomeIcon icon={faPlusSquare} />
+            </button>
+            <button id="minus" onClick={() => onRemoveFromCart(product.id)}>
+              <FontAwesomeIcon icon={faMinusSquare} />
+            </button>
           </div>
-        </Link>
+          <div className="product-rating">
+            <FontAwesomeIcon icon={faStar} color="gold" />
+            <FontAwesomeIcon icon={faStar} color="gold" />
+            <FontAwesomeIcon icon={faStar} color="gold" />
+            <FontAwesomeIcon icon={faStar} color="gold" />
+            <FontAwesomeIcon icon={faStar} color="gold" />
+          </div>
+          <p>${product.price}</p>
+        </div>
       ))}
     </div>
   );

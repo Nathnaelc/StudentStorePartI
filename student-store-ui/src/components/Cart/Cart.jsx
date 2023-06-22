@@ -6,21 +6,21 @@ export default function Cart({ cart, onAddToCart, onRemoveFromCart }) {
   return (
     <table>
       <thead>
-        <tr>
-          <th>Shopping Cart</th>
-        </tr>
+        <tr>{/* <th>Shopping Cart</th> */}</tr>
       </thead>
       <tbody>
-        {/* {if cart is empty map this otherwise no} */}
-        if (!cart.length)
-        {cart.map((item) => (
-          <SingleCartitem
-            key={item.id}
-            item={item}
-            addToCart={onAddToCart}
-            removeFromCart={onRemoveFromCart}
-          />
-        ))}
+        {!cart.length ? (
+          <tr>{/* <td> Cart is empty: last item is removed</td> */}</tr>
+        ) : (
+          cart.map((item) => (
+            <SingleCartitem
+              key={item.id}
+              item={item}
+              onAddToCart={onAddToCart}
+              onRemoveFromCart={onRemoveFromCart}
+            />
+          ))
+        )}
       </tbody>
     </table>
   );

@@ -7,6 +7,7 @@ import {
   faCheck,
 } from "@fortawesome/free-solid-svg-icons";
 import "./Sidebar.css";
+import Cart from "../Cart/Cart";
 
 export default function Sidebar({ cart, onAddToCart, onRemoveFromCart }) {
   // usestate for sidebar to expand and collapse

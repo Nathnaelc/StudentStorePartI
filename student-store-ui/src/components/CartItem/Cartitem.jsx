@@ -1,5 +1,4 @@
 import React from "react";
-import Cart from "../Cart/Cart";
 
 export default function SingleCartitem({ item }) {
   console.log("SingleCartItem item:", item);
