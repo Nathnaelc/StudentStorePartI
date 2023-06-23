@@ -12,6 +12,33 @@ import Cart from "../Cart/Cart";
 export default function Sidebar({ cart, onAddToCart, onRemoveFromCart }) {
   // usestate for sidebar to expand and collapse
   const [isExpanded, setIsExpanded] = useState(false);
+  const [receipt, setReceipt] = useState(null);
+
+  const handleCheckout = (event) => {
+    event.preventDefault();
+    const name = event.target.value;
+    const email = event.target.email;
+
+    let receipt = `Receipt\nShowing receipt for ${name} available at ${email}:\n`;
+    let subtotal = 0;
+    cart.forEach((item) => {
+      const cost = item.price * item.quantity;
+      receipt += `${item.quantity} total ${
+        item.name
+      } purchased at a cost of $${item.price.toFixed(
+        2
+      )} for a total cost of $${cost.toFixed(2)}.\n`;
+      subtotal += cost;
+    });
+
+    receipt += `Before taxes, the subtotal was $${subtotal.toFixed(2)}`;
+    // calculate taxes and total, and add them to the receipt
+
+    setReceipt(receipt);
+  };
+  const exitReceipt = () => {
+    setReceipt(null);
+  };
 
   return (
     <section className={`sidebar ${isExpanded ? "open" : ""}`}>
@@ -66,7 +93,11 @@ export default function Sidebar({ cart, onAddToCart, onRemoveFromCart }) {
               I agree with the terms and conditions
             </label>
             <br />
-            <button className="checkout-btn" type="submit">
+            <button
+              className="checkout-btn"
+              type="submit"
+              onClick={handleCheckout}
+            >
               Checkout
             </button>
             <br />
@@ -76,6 +107,13 @@ export default function Sidebar({ cart, onAddToCart, onRemoveFromCart }) {
             this order. Once you have confirmed the order, it will be delivered
             to your dorm room.
           </p>
+          {receipt && (
+            <pre>
+              {receipt}
+              <button onClick={exitReceipt}>Close</button>
+              <button>Show</button>
+            </pre>
+          )}
         </>
       )}
     </section>

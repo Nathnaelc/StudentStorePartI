@@ -6,7 +6,12 @@ export default function Cart({ cart, onAddToCart, onRemoveFromCart }) {
   return (
     <table>
       <thead>
-        <tr>{/* <th>Shopping Cart</th> */}</tr>
+        <tr>
+          <th>Name</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Total</th>
+        </tr>
       </thead>
       <tbody>
         {!cart.length ? (
