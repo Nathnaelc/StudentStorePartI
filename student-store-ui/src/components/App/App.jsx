@@ -88,11 +88,6 @@ export default function App() {
       <Router>
         <main>
           <Navbar />
-          {/* <Cart
-            cart={cart}
-            onAddToCart={onAddToCart}
-            onRemoveFromCart={onRemoveFromCart}
-          /> */}
           <Sidebar
             cart={cart}
             onAddToCart={onAddToCart}

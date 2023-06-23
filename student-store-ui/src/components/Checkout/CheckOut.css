@@ -1,0 +1,22 @@
+.checkout-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .checkout-form input[type="text"],
+  .checkout-form input[type="email"] {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .checkout-form button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  

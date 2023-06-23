@@ -1,0 +1,24 @@
+
+.cart-items {
+
+    align-items: center;
+    padding: 8px;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+
+}
+
+
+.cart-items td {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+}
+
+
+.cart-items td:first-child {
+    border-left: none;
+    text-align: left;
+}
+
+

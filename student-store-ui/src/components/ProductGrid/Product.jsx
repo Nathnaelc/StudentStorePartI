@@ -48,7 +48,7 @@ export default function Product({
             <button
               id="plus"
               onClick={() => {
-                console.log("product id:" + product.id);
+                // console.log("product id:" + product.id);
                 onAddToCart(product.id);
               }}
             >

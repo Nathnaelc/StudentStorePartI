@@ -1,14 +1,15 @@
 import React from "react";
+import "./Cartitem.css";
 
 export default function SingleCartitem({ item }) {
-  console.log("SingleCartItem item:", item);
+  //   console.log("SingleCartItem item:", item);
 
   return (
     <tr className="cart-items">
       <td>{item.name}</td>
-      <td>Quantity: {item.quantity}</td>
-      <td>Unit price: ${item.price}</td>
-      <td>Cost: ${item.price * item.quantity}</td>
+      <td> {item.quantity}</td>
+      <td>$ {item.price.toFixed(2)}</td>
+      <td>$ {(item.price * item.quantity).toFixed(2)}</td>
     </tr>
   );
 }
