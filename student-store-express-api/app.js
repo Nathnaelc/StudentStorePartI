@@ -1,7 +1,6 @@
 // YOUR CODE HERE
 const express = require("express");
 const debug = require("debug")("app");
-const path = require("path");
 const storeRouter = require("./router/routes");
 const cors = require("cors");
 const app = express();

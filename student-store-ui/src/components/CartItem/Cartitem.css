@@ -5,20 +5,27 @@
     padding: 8px;
     color: #ffffff;
     font-family: Arial, sans-serif;
-
+    margin-top: 10px;
 }
 
+th {
+    font-size: 16px;
+    padding-bottom: 10px;
+}
 
 .cart-items td {
     flex: 1;
     text-align: center;
     padding: 10px;
+    border-top: 1px solid #dedede;
+    margin-top: 10px;
 }
 
 
 .cart-items td:first-child {
     border-left: none;
     text-align: left;
+    
 }
 
 

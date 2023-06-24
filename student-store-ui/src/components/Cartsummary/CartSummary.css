@@ -1,8 +1,28 @@
 .cart-summary {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    margin-bottom: 20px;
-    font-weight: bold;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+  margin: 10px 0;
+  font-family: Arial, sans-serif;
+  width: 100%;
+}
+
+.cart-summary div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #ffffff;
+  width: 400px;
+}
+
+.cart-summary div span:first-child {
+  flex: 1;
+  text-align: left;
+}
+
+.cart-summary div span:last-child {
+  flex: 1;
+  text-align: right;
+}

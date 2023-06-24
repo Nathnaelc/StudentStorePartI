@@ -15,7 +15,7 @@ export default function Cart({ cart, onAddToCart, onRemoveFromCart }) {
       </thead>
       <tbody>
         {!cart.length ? (
-          <tr>{/* <td> Cart is empty: last item is removed</td> */}</tr>
+          <tr></tr>
         ) : (
           cart.map((item) => (
             <SingleCartitem

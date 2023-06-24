@@ -1,3 +1,6 @@
+import React from "react";
+import "./CartSummary.css";
+
 export default function CartSummary({ cart }) {
   const subtotal = cart.reduce(
     (total, item) => total + item.price * item.quantity,
@@ -6,12 +9,25 @@ export default function CartSummary({ cart }) {
   const tax = subtotal * 0.1;
   const fees = 10;
   const grandTotal = subtotal + tax + fees;
+
   return (
     <div className="cart-summary">
-      <div>Subtotal: ${subtotal.toFixed(2)}</div>
-      <div>Tax: ${tax.toFixed(2)}</div>
-      <div>Fees: ${fees.toFixed(2)}</div>
-      <div>Total: ${grandTotal.toFixed(2)}</div>
+      <div>
+        <span>Subtotal:</span>
+        <span>${subtotal.toFixed(2)}</span>
+      </div>
+      <div>
+        <span>Tax:</span>
+        <span>${tax.toFixed(2)}</span>
+      </div>
+      <div>
+        <span>Fees:</span>
+        <span>${fees.toFixed(2)}</span>
+      </div>
+      <div>
+        <span>Total:</span>
+        <span>${grandTotal.toFixed(2)}</span>
+      </div>
     </div>
   );
 }

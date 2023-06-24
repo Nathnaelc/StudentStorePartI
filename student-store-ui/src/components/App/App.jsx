@@ -14,7 +14,8 @@ import "./App.css";
 import Footer from "../Footer/Footer";
 import axios from "axios";
 import SingleProduct from "../Singleproduct/Singleproduct";
-import Cart from "../Cart/Cart";
+import OrderDetailsPage from "../OrderlistDetails/OrderListDetail";
+import OrderListPage from "../Orderlistpage/OrderListPage";
 
 //App component that renders all the components
 export default function App() {
@@ -90,6 +91,7 @@ export default function App() {
           <Navbar />
           <Sidebar
             cart={cart}
+            setCart={setCart}
             onAddToCart={onAddToCart}
             onRemoveFromCart={onRemoveFromCart}
           />
@@ -119,6 +121,8 @@ export default function App() {
               path="/product/:id"
               element={<SingleProduct products={products} />}
             />
+            <Route path="/orders" Component={OrderDetailsPage} />
+            <Route path="/orders/:id" Component={OrderListPage} />
           </Routes>
           <Footer />
         </main>
