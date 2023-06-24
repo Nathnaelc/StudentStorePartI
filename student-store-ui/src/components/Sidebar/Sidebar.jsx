@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Route, Routes, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faShoppingCart,
@@ -9,6 +10,8 @@ import {
 import "./Sidebar.css";
 import Cart from "../Cart/Cart";
 import CartSummary from "../Cartsummary/CartSummary";
+import OrderDetailPage from "../OrderlistDetails/OrderListDetail";
+import OrderListPage from "../Orderlistpage/OrderListPage";
 
 export default function Sidebar({
   cart,
@@ -20,9 +23,25 @@ export default function Sidebar({
   const [isExpanded, setIsExpanded] = useState(false);
   const [receipt, setReceipt] = useState(null);
   const [hasCheckedOut, setHasCheckedOut] = useState(false);
+  const validateInputs = () => {
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
 
-  const handleCheckout = (event) => {
+    if (name.trim() === "" || email.trim() === "") {
+      alert("Name or email cannot be empty.");
+      return false;
+    }
+    return true;
+  };
+
+  const handleCheckout = async (event) => {
     event.preventDefault();
+    console.log("Checkout started");
+    if (!validateInputs()) {
+      console.log("Input validation failed");
+      return;
+    }
+
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     setHasCheckedOut(true);
@@ -38,10 +57,33 @@ export default function Sidebar({
       subtotal += cost;
     });
 
-    receipt += `Before taxes, the subtotal was $${subtotal.toFixed(2)}`;
+    const response = await fetch("http://localhost:3001/store/orders", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        cart,
+        customer: {
+          name: name,
+          email: email,
+        },
+      }),
+    });
 
-    setReceipt(receipt);
+    if (response.ok) {
+      setCart([]);
+      setIsExpanded(true);
+      setReceipt(receipt);
+    } else {
+      console.error(
+        "Failed to checkout:",
+        response.status,
+        response.statusText
+      );
+    }
   };
+
   const exitReceipt = () => {
     setReceipt(null);
     setCart([]);
@@ -138,6 +180,19 @@ export default function Sidebar({
               </button>
             </pre>
           )}
+        </>
+      )}
+      {isExpanded && (
+        <>
+          <nav>
+            <Link to="/orders">Order List</Link>
+            <Link to="/orders/1">Order Details</Link>{" "}
+          </nav>
+
+          <Routes>
+            <Route path="/orders" element={<OrderListPage />} />
+            <Route path="/orders/:id" element={<OrderDetailPage />} />
+          </Routes>
         </>
       )}
     </section>

@@ -1,0 +1,10 @@
+/* OrderListPage.css */
+.order-list-page {
+    padding: 20px;
+  }
+  
+  .order-list-page a {
+    display: block;
+    margin-bottom: 10px;
+  }
+ 

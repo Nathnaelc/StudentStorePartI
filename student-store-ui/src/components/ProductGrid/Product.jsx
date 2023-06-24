@@ -48,7 +48,7 @@ export default function Product({
             <button
               id="plus"
               onClick={() => {
-                console.log("product id:" + product.id);
+                // console.log("product id:" + product.id);
                 onAddToCart(product.id);
               }}
             >
@@ -65,6 +65,7 @@ export default function Product({
             <FontAwesomeIcon icon={faStar} color="gold" />
             <FontAwesomeIcon icon={faStar} color="gold" />
           </div>
+          <p></p>
           <p>${product.price}</p>
         </div>
       ))}

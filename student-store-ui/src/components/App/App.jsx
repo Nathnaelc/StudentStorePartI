@@ -14,8 +14,6 @@ import "./App.css";
 import Footer from "../Footer/Footer";
 import axios from "axios";
 import SingleProduct from "../Singleproduct/Singleproduct";
-import OrderDetailsPage from "../OrderlistDetails/OrderListDetail";
-import OrderListPage from "../Orderlistpage/OrderListPage";
 
 //App component that renders all the components
 export default function App() {
@@ -26,11 +24,6 @@ export default function App() {
 
   // the shopping cart handler
   const [cart, setCart] = useState([]);
-
-  // loading state
-  // if (!products.length) {
-  //   return <p>Loading...</p>;
-  // }
 
   const onAddToCart = (productId) => {
     setCart((prevCart) => {
@@ -121,8 +114,6 @@ export default function App() {
               path="/product/:id"
               element={<SingleProduct products={products} />}
             />
-            <Route path="/orders" Component={OrderDetailsPage} />
-            <Route path="/orders/:id" Component={OrderListPage} />
           </Routes>
           <Footer />
         </main>
