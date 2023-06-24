@@ -41,7 +41,7 @@ https://www.loom.com/share/8faaab16859543428de3d69e5585124d?sid=64c8838a-d4f0-4a
 
 ### Core Features
 
-https://www.loom.com/share/09cc0d5e20af4102a8c39c577bae2ca9
+<a "https://www.loom.com/share/09cc0d5e20af4102a8c39c577bae2ca9">
 
 <div style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe src="https://www.loom.com/embed/09cc0d5e20af4102a8c39c577bae2ca9?sid=344ad604-4e8e-4af6-8e59-010d565c5c03" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
